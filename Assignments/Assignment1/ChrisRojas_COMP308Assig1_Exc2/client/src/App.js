@@ -4,6 +4,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import GameCollection from './components/GameCollection';
 import AddGame from './components/AddGame';
+import PrivateRoute from './components/PrivateRoute';  // Import PrivateRoute
 
 function App() {
   return (
@@ -13,7 +14,13 @@ function App() {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/games" element={<GameCollection />} />
+          
+          {/* Use element properly with PrivateRoute */}
+          <Route 
+            path="/games" 
+            element={<PrivateRoute element={<GameCollection />} />}  // Pass the GameCollection component as element
+          />
+          
           <Route path="/add-game" element={<AddGame />} />
         </Routes>
       </div>
